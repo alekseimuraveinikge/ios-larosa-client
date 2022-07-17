@@ -21,12 +21,12 @@ extension UIColor {
 	
 	convenience init(
 		_ netHex: Int,
-		alpha: Double = 1.0)
-	{
+		alpha: Double = 1.0
+	) {
 		self.init(
-			red: (netHex >> 16) & 0xff,
-			green: (netHex >> 8) & 0xff,
-			blue: netHex & 0xff,
+			red: (netHex >> 16) & 0xFF,
+			green: (netHex >> 8) & 0xFF,
+			blue: netHex & 0xFF,
 			alpha: alpha
 		)
 	}

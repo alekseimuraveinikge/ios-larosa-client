@@ -1,0 +1,20 @@
+# format options
+--allman false
+--indent tab
+--tabwidth 4
+--acronyms
+--emptybraces no-space
+--header strip
+--indentstrings true
+--modifierorder override,public,private(set),final,convenience,lazy,weak
+--wraparguments before-first
+--wrapparameters before-first
+--wrapcollections before-first
+--trimwhitespace nonblank-lines
+--maxwidth 120
+--wrapternary before-operators
+--wrapconditions after-first
+--ranges no-space
+
+# file options
+--exclude DerivedData

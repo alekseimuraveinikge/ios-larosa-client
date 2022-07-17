@@ -17,16 +17,16 @@ class StartViewController: ViewController<StartView, StartPresenter> {
 		)
 	}
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
         
-        animateClouds()
-        fadeInElements()
+		animateClouds()
+		fadeInElements()
 	}
 }
 
-
 // MARK: Private
+
 private extension StartViewController {
 	@objc
 	func didTapLogin() {
@@ -62,7 +62,7 @@ private extension StartViewController {
 			rootView.larosaLabel,
 			rootView.becomeLabel,
 			rootView.loginButton,
-			rootView.registerButton
+			rootView.registerButton,
 		]
 		.enumerated()
 		.forEach { index, view in
@@ -78,15 +78,14 @@ private extension StartViewController {
 	}
 }
 
-
 // MARK: Layout constants
+
 private let cloudsAnimationDuration: CGFloat = 2.0
 private let cloudsSpringDamping: CGFloat = 2.0
 
 private let cloud1LeftTargetConstant: CGFloat = -128.0
 private let cloud2RightTargetConstant: CGFloat = -133.0
 private let cloud3LeftTargetConstant: CGFloat = -180.0
-
 
 private let fadeInDuration: CGFloat = 0.5
 private let fadeInInitialDelay: CGFloat = 1.0

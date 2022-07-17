@@ -6,9 +6,8 @@ extension String {
 			string: self,
 			attributes: [
 				.font: UIFont.gothamPro(.medium, size: .large) as Any,
-				.foregroundColor: color
+				.foregroundColor: color,
 			]
 		)
 	}
-
 }

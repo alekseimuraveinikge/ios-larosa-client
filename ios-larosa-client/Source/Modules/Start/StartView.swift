@@ -1,8 +1,8 @@
 import UIKit
 
 class StartView: UIView {
-    @IBOutlet weak var loginButton: GradientButton!
-	@IBOutlet weak var registerButton: UIButton! {
+	@IBOutlet var loginButton: GradientButton!
+	@IBOutlet var registerButton: UIButton! {
 		didSet {
 			registerButton.layer.borderColor = UIColor.darkBlue.cgColor
 			registerButton.layer.borderWidth = registerBorderWidth
@@ -10,23 +10,23 @@ class StartView: UIView {
 		}
 	}
     
-    @IBOutlet weak var cloud1: UIImageView!
-    @IBOutlet weak var cloud2: UIImageView!
-    @IBOutlet weak var cloud3: UIImageView!
+	@IBOutlet var cloud1: UIImageView!
+	@IBOutlet var cloud2: UIImageView!
+	@IBOutlet var cloud3: UIImageView!
     
-    @IBOutlet weak var cloud1Left: NSLayoutConstraint!
-    @IBOutlet weak var cloud2Right: NSLayoutConstraint!
-    @IBOutlet weak var cloud3Left: NSLayoutConstraint!
+	@IBOutlet var cloud1Left: NSLayoutConstraint!
+	@IBOutlet var cloud2Right: NSLayoutConstraint!
+	@IBOutlet var cloud3Left: NSLayoutConstraint!
     
-    @IBOutlet weak var welcomeLabel: UILabel!
-    @IBOutlet weak var larosaLabel: UILabel!
-    @IBOutlet weak var becomeLabel: UILabel!
+	@IBOutlet var welcomeLabel: UILabel!
+	@IBOutlet var larosaLabel: UILabel!
+	@IBOutlet var becomeLabel: UILabel!
 	
 	private let gradientLayer: CAGradientLayer = {
 		let layer = CAGradientLayer()
 		layer.colors = [
 			UIColor.skyColor.cgColor,
-			UIColor.white.cgColor
+			UIColor.white.cgColor,
 		]
 		layer.locations = [0, 0.5]
 		return layer
@@ -43,7 +43,7 @@ class StartView: UIView {
 	}
 }
 
-
 // MARK: Layout constants
+
 private let registerBorderWidth: CGFloat = 3.0
 private let registerCornerRadius: CGFloat = 24.0

@@ -2,10 +2,10 @@ import UIKit
 
 class AuthorizationFlowCoordinator {
 	private weak var startViewController: UIViewController?
-    private weak var navigationController: UINavigationController?
+	private weak var navigationController: UINavigationController?
     
 	func launchViewController() -> UIViewController {
-        let startViewController = StartViewController(
+		let startViewController = StartViewController(
 			presenter: StartPresenterImpl(moduleOutput: self)
 		)
 		let navigationController = UINavigationController(
@@ -17,52 +17,52 @@ class AuthorizationFlowCoordinator {
 		
 		self.startViewController = startViewController
 		self.navigationController = navigationController
-        return navigationController
-    }
+		return navigationController
+	}
 	
 	func goToStartScreen() {
 		navigationController?.popViewController(animated: true)
 	}
 }
 
-
 // MARK: StartModuleOutput
+
 extension AuthorizationFlowCoordinator: StartModuleOutput {
-    func showLoginScreen() {
+	func showLoginScreen() {
 		navigationController?.pushViewController(loginController, animated: true)
-    }
+	}
     
 	func showRegistrationScreen() {
 		navigationController?.pushViewController(registrationController, animated: true)
-    }
+	}
 }
 
-
 // MARK: LoginModuleOutput
+
 extension AuthorizationFlowCoordinator: LoginModuleOutput {
-    func goToRegistration() {
+	func goToRegistration() {
 		guard let startViewController = startViewController else { return }
 		navigationController?.setViewControllers(
 			[startViewController, registrationController],
 			animated: true
 		)
-    }
+	}
 }
 
-
 // MARK: RegistrationModuleOutput
+
 extension AuthorizationFlowCoordinator: RegistrationModuleOutput {
-    func goToLoginScreen() {
+	func goToLoginScreen() {
 		guard let startViewController = startViewController else { return }
 		navigationController?.setViewControllers(
 			[startViewController, loginController],
 			animated: true
 		)
-    }
+	}
 }
 
-
 // MARK: Private
+
 extension AuthorizationFlowCoordinator {
 	private var loginController: UIViewController {
 		let controller = LoginViewController(

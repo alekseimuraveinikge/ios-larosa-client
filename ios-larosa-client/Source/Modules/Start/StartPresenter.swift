@@ -6,14 +6,14 @@ class StartPresenterImpl {
 	}
 }
 
-
 // MARK: StartPresenter
+
 extension StartPresenterImpl: StartPresenter {
 	func loginAction() {
-        moduleOutput.showLoginScreen()
-    }
+		moduleOutput.showLoginScreen()
+	}
     
-    func registerAction() {
-        moduleOutput.showRegistrationScreen()
-    }
+	func registerAction() {
+		moduleOutput.showRegistrationScreen()
+	}
 }

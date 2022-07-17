@@ -1,9 +1,9 @@
 import Foundation
 
 extension String {
-    var ddMMyyyyDate: Date {
-        formatter.date(from: self) ?? Date()
-    }
+	var ddMMyyyyDate: Date {
+		formatter.date(from: self) ?? Date()
+	}
 }
 
 extension Date {

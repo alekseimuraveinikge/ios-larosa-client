@@ -2,18 +2,16 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
 	var window: UIWindow?
 	
 	private let authService = AuthServiceImpl()
-    private lazy var rootFlowCoordinator: RootFlowCoordinator = RootFlowCoordinator(authService: authService)
+	private lazy var rootFlowCoordinator: RootFlowCoordinator = .init(authService: authService)
     
-    func application(
-		_ application: UIApplication,
-		didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+	func application(
+		_: UIApplication,
+		didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?
 	) -> Bool {
-        
-        UITextField.appearance().tintColor = UIColor.paleBlue
+		UITextField.appearance().tintColor = UIColor.paleBlue
                 
 		let window = UIWindow(frame: UIScreen.main.bounds)
 		self.window = window
@@ -21,6 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		window.rootViewController = rootFlowCoordinator.launchViewController()
 		window.makeKeyAndVisible()
 		
-        return true
-    }
+		return true
+	}
 }

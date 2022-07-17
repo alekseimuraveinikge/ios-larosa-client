@@ -3,7 +3,7 @@ protocol AuthService {
 }
 
 final class AuthServiceImpl: AuthService {
-    var isAuthorized: Bool {
-        false
-    }
+	var isAuthorized: Bool {
+		false
+	}
 }

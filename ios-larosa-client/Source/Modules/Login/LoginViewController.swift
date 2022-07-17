@@ -4,7 +4,7 @@ class LoginViewController: ViewController<LoginView, LoginPresenter> {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         
-        rootView.phoneTextField.delegate = self
+		rootView.phoneTextField.delegate = self
 		// TODO: Move to localization
 		rootView.phoneTextField.validator = PhoneNumberValidator(
 			formatter: RussianNumberFormatter(),
@@ -29,14 +29,14 @@ class LoginViewController: ViewController<LoginView, LoginPresenter> {
 			for: .touchUpInside
 		)
         
-        NotificationCenter.default.addObserver(
+		NotificationCenter.default.addObserver(
 			self,
 			selector: #selector(keyboardWillShow),
 			name: UIResponder.keyboardWillShowNotification,
 			object: nil
 		)
 		
-        NotificationCenter.default.addObserver(
+		NotificationCenter.default.addObserver(
 			self,
 			selector: #selector(keyboardWillHide),
 			name: UIResponder.keyboardWillHideNotification,
@@ -47,8 +47,8 @@ class LoginViewController: ViewController<LoginView, LoginPresenter> {
 	}
 }
 
-
 // MARK: Private
+
 extension LoginViewController {
 	@objc
 	func didTapBack() {
@@ -72,8 +72,8 @@ extension LoginViewController {
 	@objc
 	func validateFields() {
 		rootView.loginButton.alpha = rootView.allFieldsAreValid
-		? buttonValidAlpha
-		: buttonNotValidAlpha
+			? buttonValidAlpha
+			: buttonNotValidAlpha
 	}
 	
 	@objc
@@ -89,7 +89,7 @@ extension LoginViewController {
 	}
 
 	@objc
-	func keyboardWillHide(notification: Notification) {
+	func keyboardWillHide(notification _: Notification) {
 		UIView.animate(withDuration: keyboardAnimationDuration) { [rootView] in
 			rootView.bottomConstraint.constant = .zero
 			rootView.layoutIfNeeded()
@@ -97,20 +97,20 @@ extension LoginViewController {
 	}
 }
 
-
 // MARK: UnderlineTextFieldDelegate
+
 extension LoginViewController: UnderlineTextFieldDelegate {
-	func onValueChanged(field: UnderlineTextField, value: String?) {
+	func onValueChanged(field _: UnderlineTextField, value _: String?) {
 		validateFields()
 	}
 	
-    func onReturn(field: UnderlineTextField) {
-        field.resignFirstResponder()
-    }
+	func onReturn(field: UnderlineTextField) {
+		field.resignFirstResponder()
+	}
 }
 
-
 // MARK: Layout constants
+
 private let buttonNotValidAlpha: CGFloat = 0.5
 private let buttonValidAlpha: CGFloat = 1.0
 

@@ -8,8 +8,8 @@ class RootPresenterImpl {
 	}
 }
 
-
 // MARK: RootPresenter
+
 extension RootPresenterImpl: RootPresenter {
 	func didAppear() {
 		if authService.isAuthorized {
@@ -17,5 +17,5 @@ extension RootPresenterImpl: RootPresenter {
 		} else {
 			moduleOutput.showAuthorizationScreen()
 		}
-    }
+	}
 }

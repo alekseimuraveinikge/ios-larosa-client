@@ -1,6 +1,6 @@
 import UIKit
 
 extension UIImage {
-	static let done: UIImage = UIImage(named: "done")!
-	static let error: UIImage = UIImage(named: "error")!
+	static let done: UIImage = .init(named: "done")!
+	static let error: UIImage = .init(named: "error")!
 }

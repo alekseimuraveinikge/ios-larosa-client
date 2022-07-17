@@ -1,6 +1,6 @@
 protocol Validator {
-    var errorMessage: String { get }
-    func isValid(text: String?) -> Bool
+	var errorMessage: String { get }
+	func isValid(text: String?) -> Bool
 }
 
 extension Optional where Wrapped == Validator {

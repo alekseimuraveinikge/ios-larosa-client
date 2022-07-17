@@ -2,7 +2,7 @@ import UIKit
 
 protocol UnderlineTextFieldDelegate: AnyObject {
 	func onValueChanged(field: UnderlineTextField, value: String?)
-    func onReturn(field: UnderlineTextField)
+	func onReturn(field: UnderlineTextField)
 }
 
 class UnderlineTextField: UIView {
@@ -16,6 +16,7 @@ class UnderlineTextField: UIView {
 			textField.attributedPlaceholder = placeholder.attributedWith(color: .paleBlue)
 		}
 	}
+
 	@IBInspectable var type: String = `Type`.text.rawValue {
 		didSet {
 			configureTextField()
@@ -26,7 +27,7 @@ class UnderlineTextField: UIView {
 		Type(rawValue: type) ?? .text
 	}
         
-    private let textField: UITextField = {
+	private let textField: UITextField = {
 		let textField = UITextField()
 		textField.font = .gothamPro(.medium, size: .large)
 		textField.textColor = UIColor.lightBlue
@@ -35,7 +36,7 @@ class UnderlineTextField: UIView {
 		textField.rightViewMode = .always
 		textField.rightView?.isHidden = true
 		return textField
-    }()
+	}()
 	
 	private let underlineView: UIView = {
 		let underlineView = UIView()
@@ -84,7 +85,7 @@ class UnderlineTextField: UIView {
 		[
 			textField,
 			underlineView,
-			errorLabel
+			errorLabel,
 		]
 		.forEach {
 			$0.translatesAutoresizingMaskIntoConstraints = false
@@ -119,7 +120,7 @@ class UnderlineTextField: UIView {
 			textField.autocapitalizationType = .words
 		case .phone:
 			textField.keyboardType = .phonePad
-			let toolbar: UIToolbar = UIToolbar()
+			let toolbar: UIToolbar = .init()
 			toolbar.barStyle = .default
 			toolbar.items = [
 				UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
@@ -129,7 +130,7 @@ class UnderlineTextField: UIView {
 					style: .done,
 					target: self,
 					action: #selector(doneTapped)
-				)
+				),
 			]
 			toolbar.sizeToFit()
 			toolbar.tintColor = UIColor.lightBlue
@@ -138,8 +139,8 @@ class UnderlineTextField: UIView {
 	}
 }
 
-
 // MARK: Public
+
 extension UnderlineTextField {
 	var isValid: Bool { validator.isValid(textField.text) }
 	
@@ -156,8 +157,8 @@ extension UnderlineTextField {
 	}
 }
 
-
 // MARK: - Private
+
 private extension UnderlineTextField {
 	func handleNewValue(_ value: String?) {
 		let isValid = validator.isValid(value)
@@ -184,15 +185,15 @@ private extension UnderlineTextField {
 		textField.rightView?.isHidden = !isValid
 	}
     
-    @objc func doneTapped() {
-        textField.resignFirstResponder()
-    }
+	@objc func doneTapped() {
+		textField.resignFirstResponder()
+	}
 }
 
-
 // MARK: UITextFieldDelegate
+
 extension UnderlineTextField: UITextFieldDelegate {
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+	func textFieldShouldReturn(_: UITextField) -> Bool {
 		delegate?.onReturn(field: self)
 		return true
 	}
@@ -213,7 +214,7 @@ extension UnderlineTextField: UITextFieldDelegate {
 		replacementString string: String
 	) -> Bool {
 		guard let currentText = textField.text,
-			  let nsCurrentText = currentText as NSString?
+		      let nsCurrentText = currentText as NSString?
 		else { return true }
 		
 		var newText = String(nsCurrentText.replacingCharacters(in: range, with: string))
@@ -236,8 +237,8 @@ extension UnderlineTextField: UITextFieldDelegate {
 	}
 }
 
-
 // MARK: Layout constants
+
 private let textTextFieldLineSpacing: CGFloat = 4.0
 private let lineHeight: CGFloat = 2.0
 private let labelHeight: CGFloat = 10.0

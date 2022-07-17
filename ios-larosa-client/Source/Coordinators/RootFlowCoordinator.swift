@@ -2,38 +2,38 @@ import UIKit
 
 class RootFlowCoordinator {
 	private let authService: AuthService
-    private weak var rootController: UIViewController?
+	private weak var rootController: UIViewController?
     
 	init(authService: AuthService) {
 		self.authService = authService
 	}
 	
-    func launchViewController() -> UIViewController {
+	func launchViewController() -> UIViewController {
 		let controller = RootViewController(
 			presenter: RootPresenterImpl(
 				moduleOutput: self,
 				authService: authService
 			)
 		)
-        rootController = controller
-        return controller
-    }
+		rootController = controller
+		return controller
+	}
 }
 
-
 // MARK: Root Output
+
 extension RootFlowCoordinator: RootModuleOutput {
-    func showAuthorizationScreen() {
+	func showAuthorizationScreen() {
 		let authorizationCoordinator = AuthorizationFlowCoordinator()
-        let authorizationRootController = authorizationCoordinator.launchViewController()
+		let authorizationRootController = authorizationCoordinator.launchViewController()
 
-        authorizationRootController.modalPresentationStyle = .fullScreen
-        authorizationRootController.modalTransitionStyle = .coverVertical
+		authorizationRootController.modalPresentationStyle = .fullScreen
+		authorizationRootController.modalTransitionStyle = .coverVertical
 
-        rootController?.present(authorizationRootController, animated: true)
-    }
+		rootController?.present(authorizationRootController, animated: true)
+	}
     
-    func showHomeScreen() {
-        // TODO: Show home screen
-    }
+	func showHomeScreen() {
+		// TODO: Show home screen
+	}
 }

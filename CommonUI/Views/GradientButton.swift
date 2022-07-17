@@ -17,13 +17,13 @@ class GradientButton: UIButton {
 		gradientLayer.frame = bounds
 	}
     
-    private let gradientLayer: CAGradientLayer = {
-        let layer = CAGradientLayer()
-        layer.colors = [
+	private let gradientLayer: CAGradientLayer = {
+		let layer = CAGradientLayer()
+		layer.colors = [
 			UIColor.lightBlue.cgColor,
-			UIColor.darkBlue.cgColor
+			UIColor.darkBlue.cgColor,
 		]
-        layer.cornerRadius = 24
-        return layer
-    }()
+		layer.cornerRadius = 24
+		return layer
+	}()
 }

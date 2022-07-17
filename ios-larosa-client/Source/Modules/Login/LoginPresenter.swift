@@ -6,16 +6,16 @@ class LoginPresenterImpl {
 	}
 }
 
-
 // MARK: LoginPresenter
+
 extension LoginPresenterImpl: LoginPresenter {
 	func backAction() {
 		moduleOutput.goToStartScreen()
 	}
 	
 	func registerAction() {
-        moduleOutput.goToRegistration()
-    }
+		moduleOutput.goToRegistration()
+	}
 	
 	func loginAction() {
 		// TODO: LogIn business logic
