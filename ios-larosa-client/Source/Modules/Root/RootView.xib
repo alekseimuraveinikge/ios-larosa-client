@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RootViewController" customModule="ios_larosa_client" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="ivU-Vf-2eL"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RootView" customModule="ios_larosa_client" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ellipse" translatesAutoresizingMaskIntoConstraints="NO" id="hyD-fS-BQs">
+                    <rect key="frame" x="112" y="353" width="190" height="190"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="190" id="SYX-eW-eN8"/>
+                        <constraint firstAttribute="height" constant="190" id="l2r-hG-PAe"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="PmN-rG-53T">
+                    <rect key="frame" x="139.5" y="423.5" width="135" height="49"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="larosa" translatesAutoresizingMaskIntoConstraints="NO" id="vRY-UM-z1V">
+                            <rect key="frame" x="0.0" y="0.0" width="135" height="25.5"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="salon" translatesAutoresizingMaskIntoConstraints="NO" id="sUj-qt-Ypg">
+                            <rect key="frame" x="0.0" y="36.5" width="135" height="12.5"/>
+                        </imageView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="White"/>
+            <constraints>
+                <constraint firstItem="hyD-fS-BQs" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Ula-hX-Pl2"/>
+                <constraint firstItem="hyD-fS-BQs" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="XTK-K8-wlf"/>
+                <constraint firstItem="PmN-rG-53T" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="jyM-Ji-MiK"/>
+                <constraint firstItem="PmN-rG-53T" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tec-d4-oEG"/>
+            </constraints>
+            <connections>
+                <outlet property="ellipseImageView" destination="hyD-fS-BQs" id="2yE-DQ-v3O"/>
+                <outlet property="salon" destination="sUj-qt-Ypg" id="NO4-gD-JuM"/>
+                <outlet property="stack" destination="PmN-rG-53T" id="xgj-v9-dlM"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="110"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ellipse" width="197" height="197"/>
+        <image name="larosa" width="136" height="26"/>
+        <image name="salon" width="107" height="13"/>
+        <namedColor name="White">
+            <color red="0.98799997568130493" green="0.98799997568130493" blue="0.98799997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
